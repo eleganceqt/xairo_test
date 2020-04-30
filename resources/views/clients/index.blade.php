@@ -21,7 +21,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($clients as $client)
+                                @forelse($clients as $client)
                                     <tr class="center aligned">
                                         <td class="middle aligned">
                                             <a>#{{ $client->id }}</a>
@@ -50,7 +50,11 @@
                                             </a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr class="center aligned">
+                                        <td class="middle aligned" colspan="6">No records yet.</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
 
                             @if($clients->hasPages())
